@@ -40,9 +40,11 @@
 >
 > Abrimos en el navegador la URL http://localhost:8080/huerto
 >
-> NOTA: Es necesario dar un usuario de alta en el enlace de Registrarse. 
-> Luego creamos Nuevo Huerto -> Ir al huerto
-> Luego creamos Nuevo Cultivo.
+> NOTA: 
+>   - Es necesario dar un usuario de alta en el enlace de Registrarse. 
+>   - Luego creamos Nuevo Huerto.
+>   - Luego pulsamos Ir al huerto
+>   - Luego creamos Nuevo Cultivo.
 >
 
 # :seedling: CRUD HUERTO 
