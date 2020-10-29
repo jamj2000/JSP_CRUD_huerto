@@ -25,9 +25,10 @@
 > # Es necesario para que la aplicación conecte correctamente al servidor MySQL.
 > echo "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY ''" | mysql -u root -p
 >
-> # **Si tenemos MariaDB** instalado en lugar de MySQL, la anterior sentencia sería:
+> # Si tenemos MariaDB instalado en lugar de MySQL, la anterior sentencia sería:
 > echo "update mysql.user set password=PASSWORD(''),plugin='mysql_native_password'  where user='root'; flush privileges;" | mysql -u root -p  
 >
+> # Creamos base de datos y tablas
 > echo "drop database if exists planticas; create database planticas" | mysql -u root
 > cat DB/planticas.sql | mysql -u root -D planticas
 > ```
