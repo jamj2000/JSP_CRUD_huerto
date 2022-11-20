@@ -1,0 +1,42 @@
+version: '3.4'
+
+services:
+  app:
+    network_mode: "host"
+    image: tomcat:9-jdk8
+    restart: always
+    depends_on: 
+      - db
+# Don't use with network_mode: host
+#    ports:
+#      - 8080:8080
+    volumes:
+      - ./tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+      - ./mysql-connector-java-5.1.21.jar:/usr/local/tomcat/lib/mysql-connector-java-5.1.21.jar
+      - ./planticasJSP/web:/usr/local/tomcat/webapps/huerto
+  db:
+    network_mode: "host"
+    image: mariadb:10.3
+    restart: always
+    environment:
+#      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+# Don't use with network_mode: host
+#    ports:
+#      - 3306:3306
+    volumes:
+      - /var/run/mysqld:/var/run/mysqld
+      - datos:/var/lib/mysql
+      - ./DB/planticas.sql:/docker-entrypoint-initdb.d/planticas.sql
+  phpmyadmin:
+    network_mode: "host"
+    image: phpmyadmin
+    restart: always
+# Don't use with network_mode: host
+#    ports:
+#      - 8081:80
+    environment:
+      - PMA_ARBITRARY=1
+
+volumes:
+   datos:

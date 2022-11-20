@@ -22,6 +22,9 @@ SET time_zone = "+00:00";
 -- Base de datos: `planticas`
 --
 
+CREATE DATABASE planticas;
+USE planticas;
+
 -- --------------------------------------------------------
 
 --
